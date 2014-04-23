@@ -16,7 +16,7 @@ module.exports = function(grunt) {
       dist: {
         options: {
           style: 'compressed',
-          compass: true,
+          compass: false,
           // Source maps are available, but require Sass 3.3.0 to be installed
           // https://github.com/gruntjs/grunt-contrib-sass#sourcemap
           sourcemap: false
@@ -33,15 +33,15 @@ module.exports = function(grunt) {
         files: {
           'assets/js/scripts.min.js': [
             'assets/js/plugins/bootstrap/transition.js',
-            'assets/js/plugins/bootstrap/alert.js',
+            //'assets/js/plugins/bootstrap/alert.js',
             'assets/js/plugins/bootstrap/button.js',
-            'assets/js/plugins/bootstrap/carousel.js',
+            //'assets/js/plugins/bootstrap/carousel.js',
             'assets/js/plugins/bootstrap/collapse.js',
             'assets/js/plugins/bootstrap/dropdown.js',
-            'assets/js/plugins/bootstrap/modal.js',
-            'assets/js/plugins/bootstrap/tooltip.js',
-            'assets/js/plugins/bootstrap/popover.js',
-            'assets/js/plugins/bootstrap/scrollspy.js',
+            //'assets/js/plugins/bootstrap/modal.js',
+            //'assets/js/plugins/bootstrap/tooltip.js',
+            //'assets/js/plugins/bootstrap/popover.js',
+            //'assets/js/plugins/bootstrap/scrollspy.js',
             'assets/js/plugins/bootstrap/tab.js',
             'assets/js/plugins/bootstrap/affix.js',
             'assets/js/plugins/*.js',
@@ -55,6 +55,7 @@ module.exports = function(grunt) {
         }
       }
     },
+/*
     version: {
       options: {
         file: 'lib/scripts.php',
@@ -64,31 +65,33 @@ module.exports = function(grunt) {
         jsHandle: 'roots_scripts'
       }
     },
+*/
     watch: {
       sass: {
         files: [
           'assets/sass/*.scss',
           'assets/sass/bootstrap/*.scss'
         ],
-        tasks: ['sass', 'version']
+        tasks: ['sass'/* , 'version' */]
       },
       js: {
         files: [
           '<%= jshint.all %>'
         ],
-        tasks: ['jshint', 'uglify', 'version']
+        tasks: ['jshint', 'uglify']
       },
       livereload: {
         // Browser live reloading
         // https://github.com/gruntjs/grunt-contrib-watch#live-reloading
         options: {
-          livereload: false
+          livereload: true
         },
         files: [
           'assets/css/main.min.css',
           'assets/js/scripts.min.js',
           'templates/*.php',
-          '*.php'
+          '*.php',
+          'Gruntfile.js'
         ]
       }
     },
@@ -106,14 +109,15 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-wp-version');
+  //grunt.loadNpmTasks('grunt-contrib-compass');
+  //grunt.loadNpmTasks('grunt-wp-version');
 
   // Register tasks
   grunt.registerTask('default', [
     'clean',
     'sass',
-    'uglify',
-    'version'
+    'uglify'
+    //,'version'
   ]);
   grunt.registerTask('dev', [
     'watch'

@@ -1,3 +1,5 @@
+<?php if(  function_exists('emn_show_theme')  ) emn_show_theme(__FILE__); ?>
+
 <header class="banner container" role="banner">
   <div class="row">
     <div class="col-lg-12">

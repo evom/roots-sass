@@ -1,3 +1,5 @@
+<?php if(  function_exists('emn_show_theme')  ) emn_show_theme(__FILE__); ?>
+
 <header class="banner navbar navbar-default navbar-static-top" role="banner">
   <div class="container">
     <div class="navbar-header">

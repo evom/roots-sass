@@ -1,3 +1,5 @@
+<?php if(  function_exists('emn_show_theme')  ) emn_show_theme(__FILE__); ?>
+
 <form role="search" method="get" class="search-form form-inline" action="<?php echo home_url('/'); ?>">
   <div class="input-group">
     <input type="search" value="<?php if (is_search()) { echo get_search_query(); } ?>" name="s" class="search-field form-control" placeholder="<?php _e('Search', 'roots'); ?> <?php bloginfo('name'); ?>">

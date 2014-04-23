@@ -1,3 +1,4 @@
+<?php if(  function_exists('emn_show_theme')  ) emn_show_theme(__FILE__); ?>
 <article <?php post_class(); ?>>
   <header>
     <h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>

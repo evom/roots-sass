@@ -1,3 +1,4 @@
+<?php if(  function_exists('emn_show_theme')  ) emn_show_theme(__FILE__); ?>
 <?php while (have_posts()) : the_post(); ?>
   <article <?php post_class(); ?>>
     <header>
