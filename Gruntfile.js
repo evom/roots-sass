@@ -28,6 +28,22 @@ module.exports = function(grunt) {
         }
       }
     },
+    compass: {
+      dist: {
+        options: {
+          sassDir: 'assets/sass',
+          cssDir: 'assets/css/',
+          environment: 'production',
+          outputStyle: 'compressed'
+        }
+      }
+    },
+    rename: {
+      dist: {
+        src: 'assets/css/app.css',
+        dest: 'assets/css/main.min.css'
+      }
+    },
     uglify: {
       dist: {
         files: {
@@ -50,12 +66,12 @@ module.exports = function(grunt) {
         },
         options: {
           // JS source map: to enable, uncomment the lines below and update sourceMappingURL based on your install
-          // sourceMap: 'assets/js/scripts.min.js.map',
-          // sourceMappingURL: '/app/themes/roots/assets/js/scripts.min.js.map'
+          sourceMap: 'assets/js/scripts.min.js.map',
+          sourceMappingURL: '../../',
+          beautify: true
         }
       }
     },
-/*
     version: {
       options: {
         file: 'lib/scripts.php',
@@ -65,14 +81,13 @@ module.exports = function(grunt) {
         jsHandle: 'roots_scripts'
       }
     },
-*/
     watch: {
       sass: {
         files: [
-          'assets/sass/*.scss',
-          'assets/sass/bootstrap/*.scss'
+          'assets/sass/**/*.scss',
+          //'assets/sass/bootstrap/*.scss'
         ],
-        tasks: ['sass'/* , 'version' */]
+        tasks: ['compass', 'rename'/* 'version' */]
       },
       js: {
         files: [
@@ -108,14 +123,15 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  //grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-rename');
   //grunt.loadNpmTasks('grunt-wp-version');
 
   // Register tasks
   grunt.registerTask('default', [
     'clean',
-    'sass',
+    'compass',
+    'rename',
     'uglify'
     //,'version'
   ]);
