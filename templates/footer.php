@@ -6,4 +6,8 @@
   </div>
 </footer>
 
+<?php if( function_exists('is_dev_server') && is_dev_server() ): ?>
+  <script src="//localhost:35729/livereload.js"></script>
+<?php endif; ?>
+
 <?php wp_footer(); ?>
