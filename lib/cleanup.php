@@ -259,3 +259,21 @@ function roots_get_search_form($form) {
   return $form;
 }
 add_filter('get_search_form', 'roots_get_search_form');
+
+
+/*
+ * Modify HTTP header
+ * Add the IE header which we removed from meta tags. causes validation errors
+ * see: http://www.validatethis.co.uk/news/fix-bad-value-x-ua-compatible-once-and-for-all/
+ */
+function add_header_xua($headers) {
+
+    // var_dump($headers); #=> if you want to see the current headers...
+
+    if (!is_admin()) {
+        $headers['X-UA-Compatible'] = 'IE=edge,chrome=1';
+    }
+
+    return $headers;
+}
+add_filter('wp_headers', 'add_header_xua');
