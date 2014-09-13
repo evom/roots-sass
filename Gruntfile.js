@@ -68,7 +68,12 @@ module.exports = function(grunt) {
           // JS source map: to enable, uncomment the lines below and update sourceMappingURL based on your install
           sourceMap: 'assets/js/scripts.min.js.map',
           sourceMappingURL: '../../',
-          beautify: true
+          beautify: true,
+          compress: {
+            //drop_console: true
+          },
+          //mangle: false,
+          preserveComments: false
         }
       }
     },
