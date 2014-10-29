@@ -15,33 +15,15 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          style: 'compressed',
-          compass: false,
-          // Source maps are available, but require Sass 3.3.0 to be installed
-          // https://github.com/gruntjs/grunt-contrib-sass#sourcemap
-          sourcemap: false
+          // sourceMap: true,
+          outputStyle: 'compressed',
+          includePaths: require('node-bourbon').includePaths
         },
         files: {
           'assets/css/main.min.css': [
             'assets/sass/app.scss'
           ]
         }
-      }
-    },
-    compass: {
-      dist: {
-        options: {
-          sassDir: 'assets/sass',
-          cssDir: 'assets/css/',
-          environment: 'production',
-          outputStyle: 'compressed'
-        }
-      }
-    },
-    rename: {
-      dist: {
-        src: 'assets/css/app.css',
-        dest: 'assets/css/main.min.css'
       }
     },
     uglify: {
@@ -90,10 +72,9 @@ module.exports = function(grunt) {
     watch: {
       sass: {
         files: [
-          'assets/sass/**/*.scss',
-          //'assets/sass/bootstrap/*.scss'
+          'assets/sass/**/*.scss'
         ],
-        tasks: ['compass', 'rename'/* 'version' */]
+        tasks: ['sass'/* , 'version' */]
       },
       js: {
         files: [
@@ -129,19 +110,20 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-compass');
-  grunt.loadNpmTasks('grunt-rename');
+  grunt.loadNpmTasks('grunt-sass');
   //grunt.loadNpmTasks('grunt-wp-version');
 
   // Register tasks
   grunt.registerTask('default', [
     'clean',
-    'compass',
-    'rename',
+    'sass',
     'uglify'
     //,'version'
   ]);
   grunt.registerTask('dev', [
+    'clean',
+    'sass',
+    'uglify',
     'watch'
   ]);
 
