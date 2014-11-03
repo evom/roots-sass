@@ -1,0 +1,12 @@
+/* Page Header (Interior) */
+
+.page-header {
+  position:relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  @include background-size(cover);
+
+  h1 {
+    @include centerY();
+  }
+}

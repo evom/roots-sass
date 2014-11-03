@@ -1,0 +1,59 @@
+/* Site Header/Primary navigation */
+/*
+  This sheet is a bare-bones representation of our default menu walker's output.
+  Note: There's a lot of nesting going on, particularly around the ul.dropdown-menu area,
+        but feel free to draw these out. My goal here was to create a decent reminder of
+        what the walker' structure looks like.
+ */
+
+/* Canceling Out Bootstrap & Default List Styles */
+ul.navbar-nav, ul.navbar-nav ul, ul.navbar-nav > li, ul.navbar-nav > li > li, ul.navbar-nav > li > a, ul.nav > li > a, ul.nav > li > a:hover, ul.nav > li > a:focus, ul.nav li:last-child, ul.nav li li:first-child, .nav .open > a, .nav .open > a:hover, .nav .open > a:focus { outline-color: transparent; outline: none; text-decoration:none; float:none; line-height:inherit; padding:0; margin:0; background:none; border:none; }
+.banner, .dropdown-menu { border:none; background:none; }
+
+
+/* Header */
+header.banner {
+
+  // Persistent Elements:
+  .navbar-header {
+
+    // Menu Button (mobile)
+    button.navbar-toggle {}
+
+    // Site Title/Logo
+    .navbar-brand {}
+  }
+
+  // Primary Navigation Block (toggles on mobile):
+  > nav {
+
+    // First-Tier Menu:
+    ul.nav
+
+      li {
+
+        a {
+
+          &:hover {
+          }
+        }
+
+        // li's containing current page nav
+        &.active{}
+
+        // li's containing dropdowns:
+        &.dropdown-menu {}
+
+        // nested sub-nav ul's:
+        ul.dropdown-menu {
+
+          li {
+
+            a {}
+            &.active{}
+          }
+        }
+      }
+    }
+  }
+}

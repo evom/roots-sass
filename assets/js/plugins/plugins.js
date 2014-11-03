@@ -56,47 +56,6 @@ $(window).smartresize(function(){
 });
 */
 
-(function($){
-
-  $.fn.wrapChildren = function(options) {
-
-    var options = $.extend({
-      childElem : undefined,
-      sets : 1,
-      wrapper : '<div>'
-      }, options || {});
-
-    if (options.childElem === undefined) return this;
-
-    return this.each(function() {
-      var elems = $(this).children(options.childElem), arr = [];
-
-      elems.each(function(i,value) {
-        arr.push(value);
-        if (((i + 1) % options.sets === 0) || (i === elems.length -1)) {
-          var set = $(arr);
-          arr = [];
-          set.wrapAll($(options.wrapper));
-        }
-      });
-    });
-  }
-
-})(jQuery);
-
-/*
-childElem - the element nodeType of the immediate children to wrap
-sets - how you want to group the child elements. For example, sets of 3 in your case. Default is 1
-wrapper - the element to wrap the child elements in. default is
-<div>
-
-Usage: ` $(function() {
-
-$('#entries').wrapChildren({ childElem : 'a' , sets: 3});
-
-});
-*/
-
 /*!
  * jQuery.ScrollTo
  * Copyright (c) 2007-2014 Ariel Flesler - aflesler<a>gmail<d>com | http://flesler.blogspot.com

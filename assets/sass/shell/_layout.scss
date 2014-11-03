@@ -1,0 +1,65 @@
+/* Site Layout */
+/*
+  General layout, measurements and mechanics for the overal structure of pages.
+  This is the framework that surroudnds major layout elements like the site
+  header, footer, sidebar, etc.
+ */
+
+* {
+  @include box-sizing(border-box);
+}
+
+html {
+
+}
+
+body {
+  min-height: 100%;
+}
+
+main {
+  padding:40px 0;
+  background:$page-background;
+  @media #{$min-sm} {
+    padding:65px 0;
+  }
+}
+
+hr {
+  clear:both;
+  display:block;
+  height:1px;
+  padding:0;
+  margin:20px 0;
+  border:none;
+  background:$border-default;
+  @media #{$min-md} {
+    margin:40px 0;
+  }
+}
+
+blockquote {
+  border-left:5px solid $border-default;
+  margin:20px 0;
+}
+
+// WYZIWYG Editor Images
+.aligncenter {
+  display: block;
+  margin: 0 auto;
+}
+
+.alignleft {
+  float: left;
+  margin:0 20px 20px 0;
+}
+
+.alignright {
+  float: right;
+  margin:0 0 20px 20px;
+}
+
+figure.alignnone {
+  margin-left: 0;
+  margin-right: 0;
+}

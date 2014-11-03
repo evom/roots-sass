@@ -1,94 +1,26 @@
 /*!
- * Roots 6.5.2
+ * Roots 6.5.2 | EMN Roots-Sass
  */
 
+/* Variables/Libraries */
 $bootstrap-sass-asset-helper: false;
 @import "bourbon";
+@import "base/variables-mixins";
 @import "bootstrap/bootstrap";
 
+/* Core Resets and Constants: */
+@import "base/typography";
+@import "base/forms";
+
+/* Layout & Major Regions */
+@import "shell/layout";
+@import "shell/header";
+@import "shell/page-header";
+@import "sidebar";
+@import "shell/footer";
+
+/* Specific Pages & Compontents */
+@import "comonents/example";
+
+/* Non-scss add-ons: (eg. webfont libs) */
 @import "../css/font-awesome.min.css";
-
-/* ==========================================================================
-   Base
-   ========================================================================== */
-
-body { }
-
-
-
-/* ==========================================================================
-   Header
-   ========================================================================== */
-
-.banner { }
-
-
-
-/* ==========================================================================
-   Content
-   ========================================================================== */
-
-.content { }
-
-
-
-/* ==========================================================================
-   Primary Content
-   ========================================================================== */
-
-.main { }
-
-/* Gallery Shortcode */
-.gallery-row { padding: 15px 0; }
-
-
-
-/* ==========================================================================
-   Sidebar
-   ========================================================================== */
-
-.sidebar { }
-
-
-
-/* ==========================================================================
-   Posts
-   ========================================================================== */
-
-.hentry header { }
-.hentry time { }
-.hentry .byline { }
-.hentry .entry-content { }
-.hentry footer { }
-
-
-
-/* ==========================================================================
-   Footer
-   ========================================================================== */
-
-.content-info { }
-
-
-
-/* ==========================================================================
-   WordPress Generated Classes
-   See: http://codex.wordpress.org/CSS#WordPress_Generated_Classes
-   ========================================================================== */
-
-.aligncenter { display: block; margin: 0 auto; }
-.alignleft { float: left; }
-.alignright { float: right; }
-figure.alignnone { margin-left: 0; margin-right: 0; }
-
-
-
-/* ==========================================================================
-   Media Queries
-   ========================================================================== */
-
-@media (min-width: $screen-sm-min) { }
-
-@media (min-width: $screen-md-min) { }
-
-@media (min-width: $screen-lg-min) { }

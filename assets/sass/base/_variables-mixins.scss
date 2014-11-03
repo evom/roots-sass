@@ -1,0 +1,109 @@
+/* Variables & Mixins */
+
+/* ------- */
+/* Colors: */
+/* ------- */
+$page-background: white;
+$brand-color: #bada55;
+
+$border-default: #defec8;
+
+$text-default: #c0ffee;
+$text-hightlight: $brand-color;
+$text-link: #bada55;
+$text-link-hover: saturate($body-link, 25%);
+
+$social-tw: #4888b8;
+$social-fb: #39527c;
+$social-yt: #b03035;
+$social-gp: #db4b39;
+
+/* -------------- */
+/* Font Defaults: */
+/* Named to override Bootstrap defaults.
+   $font-family-base: choose -serif or -sans-serif for default copy font.
+/* -------------- */
+$font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif: Georgia, "Times New Roman", Times, serif;
+$font-family-base: $font-family-sans-serif;
+
+/* ------------- */
+/* Measurements: */
+/* ------------- */
+$header-height: 100px;
+$footer-height: 100px;
+
+/* -------------- */
+/* Depth Indices: */
+/* -------------- */
+$header-depth: 0;
+$menu-depth: 0;
+$footer-depth: 0;
+
+/* ------------------------------ */
+/* Responsive Breakpoint Helpers: */
+/* ------------------------------ */
+$screen-xs: 480px;
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;
+
+/* ------------------------------------------- */
+/* For min-width queries, above the breakpoint */
+/* ------------------------------------------- */
+$min-xs: "only screen and (min-width:#{$screen-xs})";
+$min-sm: "only screen and (min-width:#{$screen-sm})";
+$min-md: "only screen and (min-width:#{$screen-md})";
+$min-lg: "only screen and (min-width:#{$screen-lg})";
+
+/* ------------------------------------------- */
+/* For max-width queries, below the breakpoint */
+/* ------------------------------------------- */
+$max-xs: "only screen and (max-width:#{$screen-xs - 1})";
+$max-sm: "only screen and (max-width:#{$screen-sm - 1})";
+$max-md: "only screen and (max-width:#{$screen-md - 1})";
+$max-lg: "only screen and (max-width:#{$screen-lg - 1})";
+
+  // Usage: @media #{$max-sm} { }
+
+/* ------------------------------------------ */
+/* Mixins:                                    */
+/* NOTE:  Remember to utilize Sass helper functions and Bourbon:
+          Sass Funcitons: http://sass-lang.com/documentation/Sass/Script/Functions.html
+          Bourbon Docs: http://bourbon.io/docs/
+
+/* ------------------------------------------ */
+@mixin centerX() {
+  position: relative;
+  left: 50%;
+  @include transform( translateX(-50%) );
+}
+
+@mixin centerY() {
+  position: relative;
+  top: 50%;
+  @include transform( translateY(-50%) );
+}
+
+@mixin centerXY() {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  @include transform( translate(-50%, -50%) );
+}
+
+@mixin backgroundSize( $type ) {
+  background-size: $type;
+  // Enforce ie8 background-size polyfill:
+  -ms-behavior: url(/assets/js/vendor/backgroundsize.min.htc);
+}
+
+@mixin social-icons($bg-color) {
+  display:inline-block;
+  color:#fff;
+  padding:14px 11px;
+  background-color:$bg-color;
+  &:hover {
+    background-color:saturate( $bg-color, 15% );
+  }
+}

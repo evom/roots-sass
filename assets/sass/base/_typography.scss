@@ -1,0 +1,291 @@
+/* Typography */
+
+html {
+  font-size: 62.5%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+  font-size: 100%;
+  line-height: 1.5;
+  font-weight: 300;
+  color: $text-default;
+  font-family: $font-family-base;
+}
+
+a {
+  color:$text-link;
+  text-decoration:none;
+  &:hover {
+    color:$text-link-hover;
+    text-decoration:none;
+  }
+  &:focus {
+    color:$text-link-hover;
+    text-decoration:none;
+  }
+  &:active {
+    text-decoration:none;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color:$text-default;
+  line-height:1.2;
+  margin:0;
+}
+
+h1 {
+  padding:0 0 20px 0;
+  font-size:30px;
+  font-size:3rem;
+  font-weight: 300;
+  line-height: 1;
+  @media #{$min-sm} {
+    font-size:43px;
+    font-size:4.3rem;
+  }
+  .page-header & {
+    font-weight: 700;
+    color:$light;
+    text-transform: uppercase;
+    @media #{$min-sm} {
+      font-size:36px;
+      font-size:3.6rem;
+    }
+  }
+
+}
+
+h2 {
+  padding:0 0 10px 0;
+  font-size:25px;
+  font-size:2.5rem;
+  font-weight: 300;
+  line-height: 1;
+  @media #{$min-sm} {
+    font-size:36px;
+    font-size:3.6rem;
+  }
+}
+
+h3 {
+  padding:0 0 10px 0;
+  font-size:20px;
+  font-size:2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  @media #{$min-sm} {
+    font-size:27px;
+    font-size:2.7rem;
+  }
+}
+
+h4 {
+  padding:0 0 20px 0;
+  font-size:18px;
+  font-size:1.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  @media #{$min-sm} {
+    font-size:21px;
+    font-size:2.1rem;
+  }
+}
+
+h5 {
+  font-size:18px;
+  font-size:1.8rem;
+  font-weight: 500;
+}
+
+h6 {
+  font-size:12px;
+  font-size:1.2rem;
+  line-height: 1.2;
+  font-weight:700;
+  text-transform: uppercase;
+}
+
+p, li, summary {
+  font-size:14px;
+  font-size:1.4rem;
+  @media #{$min-sm} {
+    font-size:16px;
+    font-size:1.6rem;
+  }
+}
+
+p, summary {
+  padding:0 0 15px 0;
+  margin:0;
+}
+
+li {
+  position:relative;
+  list-style: none;
+  padding:0 0 10px 15px;
+  &:last-child {
+    padding-bottom:15px;
+  }
+  li:first-child {
+    margin-top:10px;
+  }
+}
+
+ul {
+  padding:0;
+  margin:0;
+  li:before {
+    content:"";
+    position:absolute;
+    top:9px;
+    left:0;
+    width:6px;
+    height:6px;
+    border-radius:12px;
+    background:$text-default;
+  }
+}
+
+ol {
+  counter-reset: i 0;
+  padding:0;
+  margin:0;
+  li:before {
+    color:$text-default;
+    font-weight:500;
+    content: counter(i) ".";
+    counter-increment: i;
+    position:absolute;
+    top:0;
+    left:0;
+  }
+}
+
+blockquote {
+  border-left:5px solid $border-default;
+  margin:20px 0;
+  p {
+    font-size:14px;
+    font-size: 1.4rem;
+    line-height: 1.7;
+  }
+}
+
+.nav {
+  li {
+    font-size:18px;
+    font-size:1.8rem;
+    text-transform: uppercase;
+    .dropdown-menu {
+      li:before {
+        content:"> ";
+        font-size:12px;
+        font-size:1.2rem;
+        background:none;
+      }
+    }
+  }
+}
+
+// Social Icons
+.social {
+  font-size:21px;
+  font-size:2.1rem;
+  line-height: 1;
+  vertical-align: middle;
+  &.icon-facebook {
+    @include social-icons($social-fb);
+  }
+  &.icon-twitter {
+    @include social-icons($social-tw);
+  }
+  &.icon-youtube {
+    @include social-icons($social-yt);
+  }
+  &.icon-gplus {
+    @include social-icons($social-gp);
+  }
+  &.icon-mail {
+    @include social-icons($text-default);
+  }
+  .social-links-news & {
+    font-size:18px;
+    font-size:1.8rem;
+  }
+}
+
+// Menu Icon
+.icon-menu {
+  font-size:28px;
+  font-size:2.8rem;
+  color:$text-default;
+  @media #{$min-sm} {
+    font-size:36px;
+    font-size:3.6rem;
+    #main-nav & {
+      background:$text-highlight;
+    }
+  }
+}
+
+// Page Navigation
+.wp-pagenavi {
+  font-size:25px;
+  font-size:2.5rem;
+  font-weight: 500;
+  color:#fff;
+  a {
+    color:#fff;
+    background:$text-default;
+    &:hover {
+      background:darken($text-default, 5%);
+    }
+  }
+  .current {
+    background:$text-hightlight;
+  }
+}
+
+
+// Forms
+
+label {
+  font-size:18px;
+  font-size:1.8rem;
+  font-weight:normal;
+  color:$text-default;
+  text-transform: uppercase;
+}
+
+input[type="text"], input[type="email"], .select-wrapper select {
+  font-size:18px;
+  font-size:1.8rem;
+  color:$text-default;
+  text-transform: uppercase;
+}
+
+.select-wrapper {
+  &:after {
+    color:$text-default;
+    font-size:30px;
+  }
+}
+
+.validation_error {
+  color:$text-hightlight;
+  font-size:14px;
+  font-size:1.4rem;
+  font-weight: normal;
+  border:1px solid $text-hightlight;
+  background:$text-hightlight;
+}
+
+.gfield_required {
+  color:$text-hightlight;
+  font-size:34px;
+  font-size:3.4rem;
+  line-height:1;
+}
+
