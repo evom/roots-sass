@@ -38,11 +38,10 @@ module.exports = function(grunt) {
       dev: {
         options: {
           style: 'expanded',
-          compass: true,
           // SASS source map
           // To disable, set sourcemap to false
           // https://github.com/gruntjs/grunt-contrib-sass#sourcemap
-          sourcemap: true
+          //sourcemap: true
         },
         files: {
           'assets/css/main.css': [
@@ -53,12 +52,11 @@ module.exports = function(grunt) {
       build: {
         options: {
           style: 'compressed',
-          includePaths: require('node-bourbon').includePaths
-          compass: true,
+          includePaths: require('node-bourbon').includePaths,
           // SASS source map
           // To disable, set sourcemap to false
           // https://github.com/gruntjs/grunt-contrib-sass#sourcemap
-          sourcemap: true
+          //sourcemap: true
         },
         files: {
           'assets/css/main.min.css': [
@@ -83,11 +81,11 @@ module.exports = function(grunt) {
         },
         options: {
           // JS source map: to enable, uncomment the lines below and update sourceMappingURL based on your install
-          sourceMap: 'assets/js/scripts.min.js.map',
+          //sourceMap: 'assets/js/scripts.min.js.map',
           sourceMappingURL: '../../',
           beautify: true,
           //mangle: false,
-          preserveComments: false
+          preserveComments: false,
           compress: {
             //drop_console: true
           },
@@ -181,7 +179,8 @@ module.exports = function(grunt) {
     'jshint',
     'sass:dev',
     'autoprefixer:dev',
-    'concat'
+    'concat',
+    'watch'
   ]);
   grunt.registerTask('build', [
     'jshint',
