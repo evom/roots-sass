@@ -47,7 +47,6 @@ h1 {
   }
   .page-header & {
     font-weight: 700;
-    color:$light;
     text-transform: uppercase;
     @media #{$min-sm} {
       font-size:36px;
@@ -244,7 +243,7 @@ blockquote {
     }
   }
   .current {
-    background:$text-hightlight;
+    background:$text-highlight;
   }
 }
 
@@ -274,16 +273,16 @@ input[type="text"], input[type="email"], .select-wrapper select {
 }
 
 .validation_error {
-  color:$text-hightlight;
+  color:$text-highlight;
   font-size:14px;
   font-size:1.4rem;
   font-weight: normal;
-  border:1px solid $text-hightlight;
-  background:$text-hightlight;
+  border:1px solid $text-highlight;
+  background:$text-highlight;
 }
 
 .gfield_required {
-  color:$text-hightlight;
+  color:$text-highlight;
   font-size:34px;
   font-size:3.4rem;
   line-height:1;

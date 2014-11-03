@@ -9,9 +9,9 @@ $brand-color: #bada55;
 $border-default: #defec8;
 
 $text-default: #c0ffee;
-$text-hightlight: $brand-color;
+$text-highlight: $brand-color;
 $text-link: #bada55;
-$text-link-hover: saturate($body-link, 25%);
+$text-link-hover: saturate($text-link, 25%);
 
 $social-tw: #4888b8;
 $social-fb: #39527c;

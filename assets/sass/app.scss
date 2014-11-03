@@ -16,11 +16,11 @@ $bootstrap-sass-asset-helper: false;
 @import "shell/layout";
 @import "shell/header";
 @import "shell/page-header";
-@import "sidebar";
+@import "shell/sidebar";
 @import "shell/footer";
 
 /* Specific Pages & Compontents */
-@import "comonents/example";
+@import "components/example";
 
 /* Non-scss add-ons: (eg. webfont libs) */
 @import "../css/font-awesome.min.css";
