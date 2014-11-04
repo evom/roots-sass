@@ -6,13 +6,14 @@
 $bootstrap-sass-asset-helper: false;
 @import "bourbon";
 @import "base/variables-mixins";
-@import "bootstrap/bootstrap";
+@import "_bootstrap.scss";
 
 /* Core Resets and Constants: */
 @import "base/typography";
 @import "base/forms";
 
 /* Layout & Major Regions */
+@import "components/_wp-classes";    // WordPress generated classes
 @import "shell/layout";
 @import "shell/header";
 @import "shell/page-header";
