@@ -179,8 +179,7 @@ module.exports = function(grunt) {
     'jshint',
     'sass:dev',
     'autoprefixer:dev',
-    'concat',
-    'watch'
+    'concat'
   ]);
   grunt.registerTask('build', [
     'jshint',
