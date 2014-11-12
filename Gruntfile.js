@@ -16,12 +16,21 @@ module.exports = function(grunt) {
       dist: {
         options: {
           // sourceMap: true,
-          outputStyle: 'compressed',
+          outputStyle: 'nested',
           includePaths: require('node-bourbon').includePaths
         },
         files: {
           'assets/css/main.min.css': [
             'assets/sass/app.scss'
+          ]
+        }
+      }
+    },
+    cssmin: {
+      dist: {
+        files: {
+          'assets/css/main.min.css': [
+            'assets/css/main.min.css'
           ]
         }
       }
@@ -110,6 +119,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-sass');
   //grunt.loadNpmTasks('grunt-wp-version');
 
@@ -117,6 +127,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'clean',
     'sass',
+    'cssmin',
     'uglify'
     //,'version'
   ]);
@@ -124,6 +135,7 @@ module.exports = function(grunt) {
     'clean',
     'sass',
     'uglify',
+    'cssmin',
     'watch'
   ]);
 
