@@ -16,7 +16,7 @@ module.exports = function(grunt) {
       dist: {
         options: {
           // sourceMap: true,
-          outputStyle: 'compressed',
+          outputStyle: 'nested',
           includePaths: require('node-bourbon').includePaths
         },
         files: {
@@ -26,8 +26,17 @@ module.exports = function(grunt) {
         }
       }
     },
-    uglify: {
+    cssmin: {
       dist: {
+        files: {
+          'assets/css/main.min.css': [
+            'assets/css/main.min.css'
+          ]
+        }
+      }
+    },
+    uglify: {
+      dev: {
         files: {
           'assets/js/scripts.min.js': [
             'assets/js/plugins/bootstrap/transition.js',
@@ -52,6 +61,38 @@ module.exports = function(grunt) {
           sourceMap: 'assets/js/scripts.min.js.map',
           sourceMappingURL: '../../',
           beautify: true,
+          compress: {
+            //drop_console: true
+          },
+          //mangle: false,
+          preserveComments: true
+        }
+      },
+      dist: {
+        files: {
+          'assets/js/scripts.min.js': [
+            'assets/js/plugins/bootstrap/transition.js',
+            //'assets/js/plugins/bootstrap/alert.js',
+            'assets/js/plugins/bootstrap/button.js',
+            //'assets/js/plugins/bootstrap/carousel.js',
+            'assets/js/plugins/bootstrap/collapse.js',
+            'assets/js/plugins/bootstrap/dropdown.js',
+            //'assets/js/plugins/bootstrap/modal.js',
+            //'assets/js/plugins/bootstrap/tooltip.js',
+            //'assets/js/plugins/bootstrap/popover.js',
+            //'assets/js/plugins/bootstrap/scrollspy.js',
+            'assets/js/plugins/bootstrap/tab.js',
+            'assets/js/plugins/bootstrap/affix.js',
+            'assets/js/plugins/*.js',
+            'assets/js/_*.js',
+            'assets/js/vendor/jquery.html5-placeholder-shim.js'
+          ]
+        },
+        options: {
+          // JS source map: to enable, uncomment the lines below and update sourceMappingURL based on your install
+          sourceMap: 'assets/js/scripts.min.js.map',
+          sourceMappingURL: '../../',
+          beautify: false,
           compress: {
             //drop_console: true
           },
@@ -110,6 +151,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-sass');
   //grunt.loadNpmTasks('grunt-wp-version');
 
@@ -117,14 +159,18 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'clean',
     'sass',
-    'uglify'
+    'uglify:dev'
     //,'version'
   ]);
   grunt.registerTask('dev', [
+    'default',
+    'watch'
+  ]);
+  grunt.registerTask('build', [
     'clean',
     'sass',
-    'uglify',
-    'watch'
+    'cssmin',
+    'uglify:dist'
   ]);
 
 };
